@@ -1,0 +1,46 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+}
+
+.register-form {
+  background-color: #9d91a3;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 20px;
+  border: solid 2px black;
+}
+
+.form-field {
+  background-color: #e8f0fe;
+  padding-left: 10px;
+  height: 40px;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.success-message {
+  background-color: #90ba78;
+  color: #ffffff;
+  height: 40px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 1.8;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: #93032e;
+  font-size: 18px;
+}
+
+.register {
+  background: #2d5d7b;
+  color: #ffffff;
+  height: 40px;
+  font-size: 20px;
+  margin-top: 30px;
+}

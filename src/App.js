@@ -73,7 +73,7 @@ function App() {
           <span className="error-message">Please enter an email address</span>
         )}
 
-        <button>Register</button>
+        <button className="register">Register</button>
       </form>
     </div>
   );
