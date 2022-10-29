@@ -8,6 +8,9 @@ function App() {
     email: "",
   });
 
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [isValid, setIsValid] = useState(false);
+
   const firstNameHandler = (e) => {
     setValues({ ...values, firstName: e.target.value });
   };
@@ -22,11 +25,20 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (values.firstName && values.lastName && values.email) {
+      setIsValid(true);
+    }
+    setHasSubmitted(true);
   };
 
   return (
     <div className="form-container">
-      <form className="register-form">
+      <form className="register-form" onSubmit={handleSubmit}>
+        {hasSubmitted && isValid && (
+          <div className="success-message">
+            <span>Success! Thank you for registering!</span>
+          </div>
+        )}
         <input
           value={values.firstName}
           className="form-field"
@@ -34,6 +46,10 @@ function App() {
           name="firstName"
           onChange={firstNameHandler}
         />
+        {hasSubmitted && !values.firstName && (
+          <span className="error-message">Please enter a first name</span>
+        )}
+
         <input
           value={values.lastName}
           className="form-field"
@@ -41,6 +57,10 @@ function App() {
           name="lastName"
           onChange={lastNameHandler}
         />
+        {hasSubmitted && !values.lastName && (
+          <span className="error-message">Please enter a last name</span>
+        )}
+
         <input
           value={values.email}
           className="form-field"
@@ -48,7 +68,12 @@ function App() {
           name="email"
           onChange={emailHandler}
         />
-        <button onSubmit={handleSubmit}>Register</button>
+        {/* email will need more specific validation added */}
+        {hasSubmitted && !values.email && (
+          <span className="error-message">Please enter an email address</span>
+        )}
+
+        <button>Register</button>
       </form>
     </div>
   );
